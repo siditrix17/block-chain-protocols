@@ -11,9 +11,8 @@ def encode(s):
  return s
  
 def signpk():
- pk = SigningKey.generate(curve=ecdsa.SECP256k1)
- return pk
- #this is PK(ksig)
+ pk_k = SigningKey.generate(curve=ecdsa.SECP256k1)
+ return pk_k #this is PK(ksig)
 
 def hashing(pk):
   m = hashlib.sha256()

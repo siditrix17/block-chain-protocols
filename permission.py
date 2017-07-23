@@ -15,7 +15,7 @@ def encode(s):
  
 def signpk():
  pk = SigningKey.generate(curve=ecdsa.SECP256k1)
- return pk
+ return pk_k
  #this is PK(ksig)
 
 def hashing(pk):
@@ -24,12 +24,14 @@ def hashing(pk):
   A_policy=m.digest()
   return A_policy
 
-def CheckPolicy():
+Xp=[]   #set of permission allowed by user
+
+def CheckPolicy(pk_k,Xp):
  allow=0
  #to input list of permissions from user side 
  POLICYus=['location','contacts','phone_number']    #policy contains permission required 
  L=[]    #act as memory buffer
- Xp=[]    #policies allowed by user
+     #policies allowed by user
  sign=signpk()
  x=hashing(sign)
  L.append(x)
